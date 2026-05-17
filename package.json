@@ -1,0 +1,12 @@
+{
+  "name": "load-boosters-panel-clips",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium landing page for Load Boosters Panel Clips with region-based Stripe checkout routing.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
