@@ -1,5 +1,5 @@
 const stripeLinks = {
-  usa: "https://buy.stripe.com/REPLACE_WITH_USA_PAYMENT_LINK",
+  usa: "https://book.stripe.com/test_bJe4gA1LcaeQfUicOp6Zy03",
   eu: "https://buy.stripe.com/REPLACE_WITH_EU_PAYMENT_LINK"
 };
 
@@ -39,7 +39,14 @@ const checkoutButton = document.querySelector("#checkout-button");
 const checkoutRegion = document.querySelector("#checkout-region");
 
 function isConfiguredStripeLink(link) {
-  return link.startsWith("https://buy.stripe.com/") && !link.includes("REPLACE_WITH_");
+  const allowedHosts = ["buy.stripe.com", "book.stripe.com"];
+
+  try {
+    const url = new URL(link);
+    return url.protocol === "https:" && allowedHosts.includes(url.host) && !link.includes("REPLACE_WITH_");
+  } catch {
+    return false;
+  }
 }
 
 function buildCountryOptions() {
