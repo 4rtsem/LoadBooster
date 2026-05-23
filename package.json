@@ -5,7 +5,11 @@
   "description": "Premium landing page for Load Boosters Panel Clips with region-based Stripe checkout routing.",
   "scripts": {
     "build": "node scripts/build.js",
+    "deploy": "wrangler deploy",
     "start": "node server.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.94.0"
   },
   "engines": {
     "node": ">=18"
