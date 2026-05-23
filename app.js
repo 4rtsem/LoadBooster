@@ -1,9 +1,10 @@
 const stripeLinks = {
-  usa: "https://book.stripe.com/test_bJe4gA1LcaeQfUicOp6Zy03",
-  eu: "https://buy.stripe.com/REPLACE_WITH_EU_PAYMENT_LINK"
+  usa: "https://buy.stripe.com/4gM5kDdqs8fcfrdbvvcQU01",
+  eu: "https://buy.stripe.com/aFa5kD1HK8fc1An577cQU02"
 };
 
 const shippingCountries = [
+  { code: "CA", name: "Canada", region: "usa" },
   { code: "US", name: "United States", region: "usa" },
   { code: "AT", name: "Austria", region: "eu" },
   { code: "BE", name: "Belgium", region: "eu" },
@@ -55,7 +56,7 @@ function buildCountryOptions() {
     eu: document.createElement("optgroup")
   };
 
-  groups.usa.label = "USA";
+  groups.usa.label = "USA & Canada";
   groups.eu.label = "European Union";
 
   shippingCountries.forEach((country) => {
@@ -84,7 +85,7 @@ function setCheckoutState(countryCode) {
     return;
   }
 
-  const regionLabel = country.region === "usa" ? "USA" : "EU";
+  const regionLabel = country.region === "usa" ? "USA & Canada" : "EU";
   const stripeLink = stripeLinks[country.region];
 
   if (!isConfiguredStripeLink(stripeLink)) {
